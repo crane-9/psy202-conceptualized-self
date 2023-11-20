@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fatal Error: %sveltekit.status%</title>
+
+    <style>
+        body, div {
+            /* layout */
+            align-items: center;
+            display: flex;
+            gap: 1em;
+            flex-flow: column nowrap;
+            justify-content: center;    
+        }
+
+        body {
+            /* layout */
+            gap: 2.5em;
+            height: 100vh;
+            overflow: hidden;
+
+            /* fashion */
+            background: linear-gradient(0deg, #470d31, #583c4e);
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        footer {
+            /* position */
+            bottom: 0;
+            position: fixed;
+            
+            padding: 2em;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        code {
+            background-color: #201524;
+            border-radius: 4px;
+            color: white;
+            padding: 5px;
+        }
+
+        a {
+            color: #ec87a7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>%sveltekit.status%</h1>
+        <h4>Something has gone wrong and the application is unable to handle your request.</h5>
+    </div>
+
+    <code>%sveltekit.error.message%</code>
+
+    <footer>
+        <em>If this issue persists, <a href="mailto:khavari.bird@gmail.com">contact Crane</a>.</em>
+    </footer>
+</body>
+</html>

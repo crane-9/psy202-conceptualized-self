@@ -1,0 +1,290 @@
+:root {
+    /* fonts */
+    --heading-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    --body-font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    /* primary color scale */
+    --primary-0: #faf6f6;
+    --primary-1: #f1eaea;
+    --primary-2: #9c9c9c;
+    --primary-3: #757575;
+    --primary-4: #3f3f3f;
+    --primary-5: #252525;
+    --primary-6: #1a1015;
+
+    /* accent color scale */
+    --accent-1: #b174e0;
+    --accent-2: #913cd2;
+    --accent-3: #8948bb;
+
+    --accent-1-transparent: color-mix(in srgb, var(--accent-1), transparent);
+
+    /* other colors*/
+    --red: #db4a3a;
+    --green: #36be4d;
+
+    /* others */
+    --mobile-max: 900px;
+}
+
+
+body {
+    /* fashion */
+    background: var(--primary-1);
+    color: var(--primary-6);
+    font-family: var(--body-font);
+    
+    /* layout */
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    min-height: 100vh;
+}
+
+
+/* General elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    text-transform: capitalize;
+
+    /* not available in all browsers but alas... */
+    text-wrap: balance;
+}
+
+h2 + p, p + p, p + ul, p + ol {
+    margin-top: 0;
+}
+
+p {
+    text-wrap: balance;
+}
+
+a {
+    color: var(--accent-2);
+    text-decoration: underline dashed 1px;
+}
+
+a:hover {
+    color: var(--accent-1);
+}
+
+ol, ul {
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+li {
+    margin: 1ex 0;
+}
+
+quote {
+    font-style: italic;
+}
+
+hr {
+    background: var(--accent-1);
+    border: none;
+    height: 1px;
+    width: 70%;
+}
+
+u {
+    text-decoration: underline solid;
+}
+
+form {
+    align-items: center;
+    display: flex;
+    gap: 1em;
+    flex-flow: column nowrap;
+    padding: 1em 0;
+}
+
+label {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1ex 1em;
+    justify-content: center;
+}
+
+button, input, .nice-button {
+    /* fashion */
+    color: inherit;
+    border: none;
+    font-family: var(--heading-font);
+}
+
+input, .nice-button {
+    border-radius: 3px;
+    padding: 1ex 2em;
+}
+
+
+input[type=text] {
+    padding: 1ex;
+}
+
+input[type=submit], .nice-button {
+    /* fashion */
+    background-color: var(--accent-2);
+    color: var(--primary-1);
+}
+
+input[type=submit]:hover, .nice-button:hover {
+    background-color: var(--accent-1);
+    color: var(--primary-1)!important; /* Competing with other hover states. */
+    cursor: pointer;
+}
+
+a.nice-button {
+    display: block  ;
+    text-decoration: none;
+}
+
+button.selected {
+    background-color: var(--accent-2)!important;
+}
+
+/* Special classes. */
+.error {
+    color: var(--red);
+}
+
+.success {
+    color: var(--green);
+}
+
+.padded {
+    padding: 2rem;
+}
+
+.padded:first-child, .padded + .padded {
+    padding-top: 0;
+}
+
+.center-flex {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.citation {
+    font-size: 1.5ex;
+    text-align: right;
+    margin: 0;
+    margin-top: 0.5ex
+}
+
+.semi-thin {
+    margin: auto;
+    width: 80%;
+}
+
+.thin {
+    margin: auto;
+    width: 60%;
+}
+
+.thin-flex {
+    margin: auto;
+    width: 55%;
+}
+
+.highlight {
+    background-color: var(--primary-0);
+    border-radius: 3px;
+    padding: 2em;
+}
+
+.highlight + .highlight {
+    margin-top: 2em;
+}
+
+.flex-row {
+    color: var(--accent-1);
+    font-size: 2em;
+    
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.desktop-flex-h {
+    /* flex */
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1.5em;
+    justify-content: center;
+    
+    /* other layout */
+    margin: auto;
+}
+
+.v-scroll-box {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+/* Selections */
+::selection {
+    background-color: color-mix(in srgb, var(--primary-3) 30%, transparent);
+}
+
+:focus-visible {
+    outline: 2px color-mix(in srgb, var(--primary-4) 30%, transparent) solid;
+}
+
+
+/* Animated transitions: */
+.swell {
+    transition: scale 75ms ease-in-out;
+}
+
+.swell:hover {
+    scale: 105%;
+    transition: scale 150ms;
+}
+
+/* Mobile layout */
+@media (max-width: 500px) {
+    hr {
+        width: 85%;
+    }
+
+    label {
+        flex-flow: column nowrap;
+    }
+
+    /* Styles */
+    .thin, .semi-thin {
+        width: unset;
+    }
+
+    .thin-flex {
+        width: 70%;
+    }
+
+    .desktop-flex-h {
+        display: contents;
+    }
+}
+
+/* FA */
+i {
+    color: var(--accent-1);
+    font-size: 3rem;
+}
